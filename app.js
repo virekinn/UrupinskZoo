@@ -8,6 +8,9 @@ const hbs = require('hbs');
 
 // Импортируем созданный в отдельный файлах рутеры.
 const indexRouter = require('./routes/index.route');
+const adminRouter = require('./routes/admin.route');
+const tariffsRouter = require('./routes/tariffs.route');
+
 // const entriesRouter = require('./routes/entries');
 
 const app = express();
@@ -15,7 +18,7 @@ const PORT = 3000;
 
 const sessionConfig = {
   store: new FileStore(), // хранилище сессий
-  key: 'pid', // ключ куки
+  key: 'zid', // ключ куки
   secret: 'secret', // шифрование id сессии
   resave: false, // пересохранение сессии (когда что-то поменяли - false)
   saveUninitialized: false, // сохраняем пустую сессию (чтоб посмотреть)
@@ -49,6 +52,9 @@ app.use(express.json());
 // });
 
 app.use('/', indexRouter);
+app.use('/admin', adminRouter);
+app.use('/tariffs', tariffsRouter);
+
 // app.use('/entries', entriesRouter);
 
 // Если HTTP-запрос дошёл до этой строчки, значит ни один из ранее встречаемых рутов не ответил на запрос. Это значит, что искомого раздела просто нет на сайте. Для таких ситуаций используется код ошибки 404. Создаём небольшое middleware, которое генерирует соответствующую ошибку.
