@@ -7,8 +7,8 @@ const path = require('path');
 const hbs = require('hbs');
 
 // Импортируем созданный в отдельный файлах рутеры.
-const indexRouter = require('./routes/index.route');
-const adminRouter = require('./routes/admin.route');
+// const indexRouter = require('./routes/index.route');
+// const adminRouter = require('./routes/admin.route');
 const tariffsRouter = require('./routes/tariffs.route');
 
 // const entriesRouter = require('./routes/entries');
@@ -16,17 +16,17 @@ const tariffsRouter = require('./routes/tariffs.route');
 const app = express();
 const PORT = 3000;
 
-const sessionConfig = {
-  store: new FileStore(), // хранилище сессий
-  key: 'zid', // ключ куки
-  secret: 'secret', // шифрование id сессии
-  resave: false, // пересохранение сессии (когда что-то поменяли - false)
-  saveUninitialized: false, // сохраняем пустую сессию (чтоб посмотреть)
-  httpOnly: true, // нельзя изменить куки с фронта
-  cookie: { expires: 24 * 60 * 60e3 },
-};
+// const sessionConfig = {
+//   store: new FileStore(), // хранилище сессий
+//   key: 'zid', // ключ куки
+//   secret: 'secret', // шифрование id сессии
+//   resave: false, // пересохранение сессии (когда что-то поменяли - false)
+//   saveUninitialized: false, // сохраняем пустую сессию (чтоб посмотреть)
+//   httpOnly: true, // нельзя изменить куки с фронта
+//   cookie: { expires: 24 * 60 * 60e3 },
+// };
 
-app.use(session(sessionConfig));
+// app.use(session(sessionConfig));
 
 // Сообщаем express, что в качестве шаблонизатора используется "hbs".
 app.set('view engine', 'hbs');
@@ -51,8 +51,8 @@ app.use(express.json());
 //   next();
 // });
 
-app.use('/', indexRouter);
-app.use('/admin', adminRouter);
+// app.use('/', indexRouter);
+// app.use('/admin', adminRouter);
 app.use('/tariffs', tariffsRouter);
 
 // app.use('/entries', entriesRouter);
