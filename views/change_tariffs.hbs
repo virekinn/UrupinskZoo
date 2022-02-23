@@ -1,0 +1,28 @@
+<div>
+  <h1>Изменить тарифы зоопарка</h1>
+    <form action="/tariffs/change" method="POST">
+
+    <h3>Будни</h3>
+      <div>
+        <label for="email" class="form-label">Взрослые</label>
+        <input type="text" name="adults_weekdays" value="{{adults_weekdays}}">
+      </div>
+      <div>
+        <label for="email" class="form-label">Дети</label>
+        <input type="text" name="children_weekdays" value="{{children_weekdays}}">
+      </div>
+
+    <h3>Выходные</h3>
+      <div>
+        <label for="email" class="form-label">Взрослые</label>
+        <input type="text" name="adults_weekend" value="{{adults_weekend}}">
+      </div>
+      <div>
+        <label for="email" class="form-label">Дети</label>
+        <input type="text" name="children_weekend" value="{{children_weekend}}">
+      </div>
+
+    <button type="submit">Изменить</button>
+
+    </form>
+</div>
