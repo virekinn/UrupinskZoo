@@ -9,6 +9,8 @@ const hbs = require('hbs');
 // Импортируем созданный в отдельный файлах рутеры.
 const indexRouter = require('./routes/index.route');
 const adminRouter = require('./routes/admin.route');
+const changeAnimalsRouter = require('./routes/change_animals.route');
+const changeAnimalRouter = require('./routes/change_animal.route');
 const tariffsRouter = require('./routes/tariffs.route');
 
 // const entriesRouter = require('./routes/entries');
@@ -51,9 +53,12 @@ app.use(express.json());
 //   next();
 // });
 
-app.use('/', indexRouter);
-app.use('/admin', adminRouter);
-app.use('/tariffs', tariffsRouter);
+// app.use('/', indexRouter);
+// app.use('/admin', adminRouter);
+// app.use('/tariffs', tariffsRouter);
+app.use('/change_animals', changeAnimalsRouter)
+app.use('/change_animal', changeAnimalRouter)
+
 
 // app.use('/entries', entriesRouter);
 
